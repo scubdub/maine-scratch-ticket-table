@@ -1,0 +1,1 @@
+# maine-scratch-ticket-table
