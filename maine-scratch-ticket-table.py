@@ -1,4 +1,3 @@
-
 import pandas as pd
 
 # create dataframe from first table at url
@@ -19,11 +18,11 @@ def highlight_lessthan(x):
         return ['background-color: yellow']*len(x)
     else:
         return ['background-color: white']*len(x)
-        
+
 # render html from styled df:
-html = (df.style.apply(highlight_lessthan, axis=1).render())
+html = (df.style.apply(highlight_lessthan, axis=1).hide_index().render())
 
 #save html as index.html file
 text_file = open("index.html", "w")
 text_file.write(html)
-text_file.close() 
+text_file.close()
