@@ -13,12 +13,13 @@ df = df.fillna('')
 
 # define function to highlight rows for games where the percent unsold < 1.0
 def highlight_lessthan(x):
-    if x['Percent Unsold'] < 1.0:
+    if x['Game Name'] == '':
+        return ['background-color: white']*len(x)
+    elif x['Percent Unsold'] < 1.0:
         return ['background-color: yellow']*len(x)
     else:
         return ['background-color: white']*len(x)
-
-
+        
 # render html from styled df:
 html = (df.style.apply(highlight_lessthan, axis=1).render())
 
